@@ -27,7 +27,7 @@ Verifica il funzionamento del codice prodotto dagli altri agenti.
 
 - [ ] Popup si apre correttamente cliccando sull'icona.
 - [ ] La scorciatoia corrente viene mostrata (o "Not set").
-- [ ] Link "Change shortcut" apre `chrome://extensions/shortcuts`.
+- [ ] Bottone "Customize" apre `chrome://extensions/shortcuts`.
 - [ ] Toggle "Enable keyboard shortcut" viene salvato automaticamente e persiste.
 
 ### Scorciatoia

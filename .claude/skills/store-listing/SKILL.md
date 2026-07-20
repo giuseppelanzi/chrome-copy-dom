@@ -64,8 +64,8 @@ current source and pull the facts from it:
   the `mac` variant), and `permissions` (drives the Privacy section — this
   extension uses `storage`, `activeTab` and `scripting`).
 - `popup.html` — the user-facing controls: the "Copy now" button, the "Enable
-  keyboard shortcut" toggle (off by default) with its hint text, and the "Change
-  shortcut" button.
+  keyboard shortcut" toggle (off by default) with its hint text, and the
+  "Customize" button.
 - `content.js` — the picker behavior worth describing to a user: moving the mouse
   highlights the element under it with a label showing its tag, id and pixel size;
   a click copies the element's `outerHTML` to the clipboard; `Esc` cancels; a
