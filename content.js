@@ -2,8 +2,8 @@
   "use strict";
   //
   // Se il picker è già attivo, un secondo avvio lo annulla (toggle).
-  if (window.__copyDomPicker) {
-    window.__copyDomPicker.teardown();
+  if (window.__easyCopyDomPicker) {
+    window.__easyCopyDomPicker.teardown();
     return;
   }
   //
@@ -232,8 +232,8 @@
     removeInteractionListeners();
     if (host.parentNode)
       host.parentNode.removeChild(host);
-    if (window.__copyDomPicker)
-      delete window.__copyDomPicker;
+    if (window.__easyCopyDomPicker)
+      delete window.__easyCopyDomPicker;
   }
   //
   // Attivo i listener in fase di cattura per anticipare gli handler della pagina.
@@ -243,5 +243,5 @@
   window.addEventListener("scroll", onScroll, true);
   //
   // Espongo l'istanza per il guard anti doppio avvio.
-  window.__copyDomPicker = { teardown };
+  window.__easyCopyDomPicker = { teardown };
 })();

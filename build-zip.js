@@ -39,7 +39,7 @@ async function createZip() {
   const version = getVersion();
   ensureOutputDir();
   //
-  const zipName = `copy-dom-v${version}.zip`;
+  const zipName = `easy-copy-dom-v${version}.zip`;
   const zipPath = path.join(OUTPUT_DIR, zipName);
   //
   // Rimuove ZIP precedente se esiste.
