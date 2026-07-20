@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Copy DOM</h1>
+    <!-- Copy now section. -->
+    <section class="section">
+      <button id="copy-now" class="btn-primary">Copy now</button>
+      <p class="hint">Move the mouse to highlight, click to copy the element's HTML, Esc to cancel.</p>
+      <p id="error" class="error" hidden></p>
+    </section>
+    <!-- Keyboard shortcut section. -->
+    <section class="section">
+      <h2>Keyboard shortcut</h2>
+      <label class="toggle-label">
+        <input type="checkbox" id="shortcut-enabled">
+        <span>Enable keyboard shortcut</span>
+      </label>
+      <div class="shortcut-item">
+        <span class="shortcut-name">Current shortcut</span>
+        <kbd class="shortcut-key" id="shortcut-key">Not set</kbd>
+      </div>
+      <button id="change-shortcut" class="btn-secondary">Change shortcut</button>
+      <p class="hint">Off by default. Enable it, then press the shortcut on any page.</p>
+    </section>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>

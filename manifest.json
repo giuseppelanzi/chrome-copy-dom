@@ -1,0 +1,33 @@
+{
+  "manifest_version": 3,
+  "name": "Copy DOM",
+  "version": "1.0.0",
+  "description": "Quickly copy the HTML of any element on a page: hover to highlight, click to copy. Use the toolbar icon or a keyboard shortcut.",
+  "permissions": ["storage", "activeTab", "scripting"],
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Copy DOM",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png"
+    }
+  },
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "commands": {
+    "activate-picker": {
+      "suggested_key": {
+        "default": "Alt+Shift+C",
+        "mac": "Alt+Shift+C"
+      },
+      "description": "Activate the element picker to copy HTML"
+    }
+  }
+}

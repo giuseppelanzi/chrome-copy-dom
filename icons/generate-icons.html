@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <title>Genera Icone PNG</title>
+  <style>
+    body { font-family: system-ui; max-width: 600px; margin: 40px auto; padding: 20px; }
+    h1 { color: #1a73e8; }
+    .preview { display: flex; gap: 20px; align-items: center; margin: 20px 0; }
+    .preview img { border: 1px solid #ddd; }
+    button { background: #1a73e8; color: white; border: none; padding: 12px 24px; border-radius: 4px; cursor: pointer; font-size: 16px; }
+    button:hover { background: #1557b0; }
+    .info { background: #e8f0fe; padding: 16px; border-radius: 8px; margin-top: 20px; }
+  </style>
+</head>
+<body>
+  <h1>Genera Icone PNG</h1>
+  <p>Clicca il bottone per scaricare le icone nelle dimensioni richieste da Chrome.</p>
+  <div class="preview">
+    <div><img id="preview128" width="128" height="128"><br>128x128</div>
+    <div><img id="preview48" width="48" height="48"><br>48x48</div>
+    <div><img id="preview16" width="16" height="16"><br>16x16</div>
+  </div>
+  <button onclick="downloadAll()">Scarica tutte le icone</button>
+  <div class="info">
+    <strong>Istruzioni:</strong>
+    <ol>
+      <li>Clicca "Scarica tutte le icone"</li>
+      <li>Salva i 3 file PNG nella cartella <code>icons/</code></li>
+      <li>Ricarica l'estensione in Chrome</li>
+    </ol>
+  </div>
+  <script>
+    const svgContent = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+      <defs>
+        <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" style="stop-color:#1a73e8"/>
+          <stop offset="100%" style="stop-color:#0d47a1"/>
+        </linearGradient>
+      </defs>
+      <circle cx="64" cy="64" r="60" fill="url(#bg)"/>
+      <rect x="38" y="32" width="42" height="54" rx="6" fill="#ffffff" opacity="0.4"/>
+      <rect x="50" y="44" width="42" height="54" rx="6" fill="#ffffff"/>
+      <path d="M 67 60 L 59 71 L 67 82" stroke="#1a73e8" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      <path d="M 79 60 L 87 71 L 79 82" stroke="#1a73e8" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    </svg>`;
+    //
+    function generatePNG(size) {
+      return new Promise(resolve => {
+        const canvas = document.createElement("canvas");
+        canvas.width = size;
+        canvas.height = size;
+        const ctx = canvas.getContext("2d");
+        const img = new Image();
+        const blob = new Blob([svgContent], { type: "image/svg+xml" });
+        const url = URL.createObjectURL(blob);
+        img.onload = () => {
+          ctx.drawImage(img, 0, 0, size, size);
+          URL.revokeObjectURL(url);
+          resolve(canvas.toDataURL("image/png"));
+        };
+        img.src = url;
+      });
+    }
+    //
+    function download(dataUrl, filename) {
+      const a = document.createElement("a");
+      a.href = dataUrl;
+      a.download = filename;
+      a.click();
+    }
+    //
+    async function downloadAll() {
+      const sizes = [16, 48, 128];
+      for (const size of sizes) {
+        const dataUrl = await generatePNG(size);
+        download(dataUrl, `icon${size}.png`);
+        await new Promise(r => setTimeout(r, 500));
+      }
+    }
+    //
+    async function showPreviews() {
+      document.getElementById("preview128").src = await generatePNG(128);
+      document.getElementById("preview48").src = await generatePNG(48);
+      document.getElementById("preview16").src = await generatePNG(16);
+    }
+    //
+    showPreviews();
+  </script>
+</body>
+</html>

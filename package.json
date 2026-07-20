@@ -1,0 +1,12 @@
+{
+  "name": "copy-dom",
+  "version": "1.0.0",
+  "description": "Build tools for the Copy DOM Chrome extension.",
+  "private": true,
+  "scripts": {
+    "build": "node build-zip.js"
+  },
+  "devDependencies": {
+    "archiver": "^7.0.1"
+  }
+}
