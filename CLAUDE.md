@@ -30,7 +30,7 @@ Linee guida per gli agenti (Codex CLI, Claude Code, ecc.) che lavorano su questo
 
 ## Cos'è questa estensione
 
-Copy DOM è un'estensione Chrome (Manifest V3) che permette di copiare rapidamente l'HTML di un elemento della pagina. Si attiva in due modi:
+Easy Copy DOM è un'estensione Chrome (Manifest V3) che permette di copiare rapidamente l'HTML di un elemento della pagina. Si attiva in due modi:
 
 1. **Icona nella toolbar** → apre un popup con la configurazione e un pulsante "Copy now".
 2. **Scorciatoia da tastiera** (default `Alt+Shift+C`, **spenta di default**, si attiva con un toggle nel popup).

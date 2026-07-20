@@ -73,7 +73,7 @@ const getActiveTab = async function () {
  */
 const activatePicker = async function (tab) {
   if (!tab.id || isRestrictedUrl(tab.url)) {
-    console.warn("Copy DOM: cannot inject the picker on this page.");
+    console.warn("Easy Copy DOM: cannot inject the picker on this page.");
     return false;
   }
   //
@@ -82,7 +82,7 @@ const activatePicker = async function (tab) {
     return true;
   }
   catch (ex) {
-    console.warn(`Copy DOM: injection failed: ${ex}`);
+    console.warn(`Easy Copy DOM: injection failed: ${ex}`);
     return false;
   }
 }

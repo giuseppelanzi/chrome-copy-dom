@@ -1,7 +1,7 @@
 {
-  "name": "copy-dom",
-  "version": "1.0.0",
-  "description": "Build tools for the Copy DOM Chrome extension.",
+  "name": "easy-copy-dom",
+  "version": "1.0.1",
+  "description": "Build tools for the Easy Copy DOM Chrome extension.",
   "private": true,
   "scripts": {
     "build": "node build-zip.js"
